@@ -1,0 +1,95 @@
+.car {
+  animation-name: car-animation;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  position: absolute;
+  bottom: -50px;
+  z-index: 10;
+}
+
+@keyframes car-animation {
+  0% {
+    opacity: 0%;
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0px);
+  }
+}
+.building {
+  animation-name: building-animation;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  position: absolute;
+  bottom: 50px;
+  z-index: 10;
+}
+@keyframes building-animation {
+  0% {
+    opacity: 0%;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
+.job {
+  animation-name: job-animation;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  width: 380px;
+  height: 380px;
+  position: absolute;
+  bottom: 0px;
+  z-index: 10;
+}
+@keyframes job-animation {
+  0% {
+    opacity: 0%;
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0px);
+  }
+}
+.house {
+  animation-name: building-animation;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  position: absolute;
+  bottom: 50px;
+  z-index: 10;
+}
+@keyframes house-animation {
+  0% {
+    opacity: 0%;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
+.shopping {
+  animation-name: shopping-animation;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  width: 380px;
+  height: 380px;
+  position: absolute;
+  bottom: 50px;
+  z-index: 10;
+}
+@keyframes shopping-animation {
+  0% {
+    opacity: 0%;
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateX(0px);
+  }
+}
