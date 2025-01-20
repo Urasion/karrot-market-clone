@@ -99,7 +99,7 @@ export default function MainBanner() {
   };
   return (
     <div
-      className="w-full h-[470px] flex justify-center items-center duration-200 z-0"
+      className="w-full h-[470px] flex justify-center items-center duration-200 z-0 my-3 xl:my-0"
       style={{ backgroundColor: `${bannerList[activeIndex].color}` }}
     >
       <button className="size-9 mr-5" onClick={handleOnChangeBannerLeft}>

@@ -111,10 +111,10 @@ const CardList = [
 ];
 export default function Footer() {
   return (
-    <div className="w-full h-[1080px] ">
-      <section className="w-[1400px] h-full flex flex-col m-auto p-20">
-        <div className="flex">
-          <div className="w-[552px] h-[384px] mb-10 flex items-start flex-col ">
+    <div className="w-full xl:h-[1080px] pl-4">
+      <section className="w-full xl:w-[1400px] h-full flex flex-col xl:m-auto xl:p-20">
+        <div className="flex flex-col">
+          <div className="xl:w-[552px] xl:h-[384px] mb-10 flex items-start flex-col ">
             <CarrotIcon />
             <div className="flex text-white space-x-4">
               <LucideFacebook />
@@ -122,7 +122,7 @@ export default function Footer() {
               <LucideYoutube />
             </div>
           </div>
-          <div className="w-[668px] h-full grid grid-cols-4 grid-rows-2 grid-flow-row gap-4  ">
+          <div className="flex flex-col xl:w-[668px] h-full xl:grid xl:grid-cols-4 xl:grid-rows-2 xl:grid-flow-row xl:gap-4 space-y-5">
             {CardList.map((card) => (
               <div
                 className="w-40 flex flex-col space-y-3 text-white"
@@ -144,7 +144,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-full border-b border-gray-700 mb-5" />
-        <div className="w-[1240px] h-44 whitespace-pre-wrap text-gray-300 text-sm font-bold">
+        <div className="xl:w-[1240px] h-44 whitespace-pre-wrap text-gray-300 text-sm font-bold">
           {`
           (주) 당근마켓
           대표 김용현, 황도연 | 사업자번호 375-87-00088

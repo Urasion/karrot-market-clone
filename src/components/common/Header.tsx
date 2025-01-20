@@ -9,7 +9,7 @@ import {
   NavigationMenuTrigger,
 } from '../ui/NavigationMenu';
 import CarrotIcon from '../icons/CarrotIcon';
-import { LucideSearch } from 'lucide-react';
+import { LucideChevronDown, LucideMapPin, LucideSearch } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import SearchBar from './SearchBar';
 import {
@@ -23,15 +23,16 @@ import {
   useState,
 } from 'react';
 import useModal from '../../hooks/useModal';
+import useUser from '../../hooks/useUser';
 type menu = {
   label: string;
   value: string;
   children?: menu[];
 };
-const menus = [
+export const menus = [
   {
     label: '중고거래',
-    value: 'usedItemTrade',
+    value: 'buy-sell',
   },
   {
     label: '부동산',
@@ -75,7 +76,8 @@ type Props = {
 };
 const Header = forwardRef(({ isSearch, isEvent, setIsEvent }: Props, ref) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { useQRModal } = useModal();
+  const { openQRModal } = useModal();
+  const { user } = useUser();
   useEffect(() => {
     if (isOpen && isEvent) {
       setIsOpen(false);
@@ -89,9 +91,9 @@ const Header = forwardRef(({ isSearch, isEvent, setIsEvent }: Props, ref) => {
       className="w-full h-[72px] flex flex-col relative"
       ref={ref as LegacyRef<HTMLDivElement>}
     >
-      <nav className="w-[1400px] h-full flex justify-between items-center px-20 m-auto z-40 bg-black">
+      <nav className="xl:w-[1400px] h-full flex justify-between items-center xl:px-20 xl:m-auto z-40 px-4">
         <CarrotIcon />
-        <ul className="flex group">
+        <ul className="hidden xl:flex group ">
           {menus.map((menu) => (
             <li key={menu.value}>
               {menu.children ? (
@@ -130,6 +132,16 @@ const Header = forwardRef(({ isSearch, isEvent, setIsEvent }: Props, ref) => {
         </ul>
         <div className="flex space-x-2">
           <Button
+            className={`flex xl:hidden px-4 py-0 gap-1 bg-[#2C2E34] rounded-3xl text-white text-base font-bold items-center z-10 duration-200  ${
+              isSearch ? 'translate-x-0' : 'translate-x-12'
+            }`}
+            onClick={() => {}}
+          >
+            <LucideMapPin />
+            {user.place.gu || user.place.si}
+            <LucideChevronDown />
+          </Button>
+          <Button
             size="sm"
             className={cn('hover:bg-gray-600 group')}
             onClick={() => {
@@ -141,8 +153,8 @@ const Header = forwardRef(({ isSearch, isEvent, setIsEvent }: Props, ref) => {
           </Button>
           <Button
             size="sm"
-            className="bg-orange-950 hover:bg-orange-900 text-[#ff6402] font-bold"
-            onClick={useQRModal}
+            className="hidden xl:flex bg-orange-950 hover:bg-orange-900 text-[#ff6402] font-bold"
+            onClick={openQRModal}
           >
             앱 다운로드
           </Button>

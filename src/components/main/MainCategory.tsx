@@ -192,13 +192,13 @@ export default function MainCategory() {
   const divRef = useRef<HTMLDivElement>(null);
   useEffect(() => {}, [page]);
   return (
-    <section className="w-[1400px] h-[284px] flex flex-col px-20 mx-auto ">
+    <section className="w-full xl:w-[1400px] h-[284px] flex flex-col xl:px-20 mx-auto px-4 ">
       <header className="text-white font-bold text-2xl my-6">
         인기 카테고리
       </header>
       <div className="w-full flex relative group">
         <button
-          className="size-12 absolute -left-8 top-[60px] rounded-full z-10 bg-black group-hover:opacity-100 group-hover:disabled:opacity-0 opacity-0  duration-300"
+          className="hidden xl:flex size-12 absolute -left-8 top-[60px] rounded-full z-10 bg-black group-hover:opacity-100 group-hover:disabled:opacity-0 opacity-0  duration-300"
           disabled={page === 0}
           onClick={() => {
             const nextPage = page - 1;
@@ -221,7 +221,7 @@ export default function MainCategory() {
           ))}
         </div>
         <button
-          className="size-12 absolute -right-8 top-[60px] rounded-full z-10 bg-black group-hover:opacity-100 opacity-0 group-hover:disabled:opacity-0 duration-300"
+          className="hidden xl:flex size-12 absolute -right-8 top-[60px] rounded-full z-10 bg-black group-hover:opacity-100 opacity-0 group-hover:disabled:opacity-0 duration-300"
           disabled={page === Math.floor(divRef.current?.scrollWidth! / 1240)}
           onClick={() => {
             const nextPage = page + 1;

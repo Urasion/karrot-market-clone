@@ -1,4 +1,5 @@
 import useModal from '../../hooks/useModal';
+import PlaceModal from './PlaceModal';
 import QrModal from './QrModal';
 
 export default function ModalProvider() {
@@ -7,6 +8,10 @@ export default function ModalProvider() {
     <>
       <QrModal
         isOpen={modal.type === 'QR' && modal.isOpen}
+        closeModal={closeModal}
+      />
+      <PlaceModal
+        isOpen={modal.type === 'Place' && modal.isOpen}
         closeModal={closeModal}
       />
     </>

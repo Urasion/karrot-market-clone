@@ -15,6 +15,9 @@ import {
 import { Input } from '../ui/Input';
 import { useEffect, useState } from 'react';
 import { cn } from '../../lib/utils';
+import useModal from '../../hooks/useModal';
+import { useAtomValue } from 'jotai';
+import { userInfo } from '../../store/store';
 type Item = {
   label: string;
   value: string;
@@ -22,7 +25,7 @@ type Item = {
 const selectItems = [
   {
     label: '중고거래',
-    value: 'usedItemTrade',
+    value: 'buy-sell',
   },
   {
     label: '부동산',
@@ -58,17 +61,22 @@ const popularKeyword = [
 export default function SearchBar() {
   const [input, setInput] = useState<string>('');
   const [selectValue, setSelectValue] = useState<string>('usedItemTransaction');
+  const user = useAtomValue(userInfo);
+  const { openPlaceModal } = useModal();
   return (
-    <div className="w-full h-full flex items-start space-x-4 bg-black">
-      <Button className="px-4 py-0 gap-1 bg-[#2C2E34] rounded-3xl text-white text-base font-bold items-center">
+    <div className="w-full h-full flex items-start xl:space-x-4 px-4 bg-black">
+      <Button
+        className="hidden xl:flex px-4 py-0 gap-1 bg-[#2C2E34] rounded-3xl text-white text-base font-bold items-center"
+        onClick={openPlaceModal}
+      >
         <LucideMapPin />
-        강서구
+        {user.place.gu || user.place.si}
         <LucideChevronDown />
       </Button>
       <div className="grow flex flex-col">
         <div className="grow flex items-center text-white border border-gray-700 rounded-md font-medium">
           <Select
-            defaultValue="usedItemTrade"
+            defaultValue="buy-sell"
             onValueChange={(value) => {
               setSelectValue(value);
             }}
@@ -114,11 +122,13 @@ export default function SearchBar() {
             <LucideSearch />
           </Button>
         </div>
-        <div className="flex space-x-3 py-3 pl-2">
-          <span className="text-white text-sm">인기 검색어</span>
+        <div className="max-w-[380px] flex items-center space-x-2  py-3 pl-2 overflow-auto ">
+          <span className="hidden xl:inline text-white text-sm xl:mr-4">
+            인기 검색어
+          </span>
           {popularKeyword.map((keyword) => (
             <span
-              className="text-gray-400 text-sm hover:underline cursor-pointer"
+              className=" text-center text-white xl:text-gray-400 text-sm hover:underline cursor-pointer rounded-2xl border xl:border-0 border-gray-700 whitespace-nowrap px-4 py-1"
               key={keyword}
             >
               {keyword}

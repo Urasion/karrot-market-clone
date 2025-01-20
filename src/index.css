@@ -9,21 +9,23 @@
 body,
 html {
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 body {
   display: flex;
   flex-direction: column;
   flex-grow: 1 !important;
+  overflow: hidden;
 }
 #root {
   display: flex;
+  width: 100vw;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
-  flex-grow: 1 !important;
 }
 body {
   margin: 0;

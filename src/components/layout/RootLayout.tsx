@@ -5,9 +5,7 @@ export default function RootLayout() {
   return (
     <>
       <ModalProvider />
-      <div className="w-full h-full flex">
-        <Outlet />
-      </div>
+      <Outlet />
     </>
   );
 }

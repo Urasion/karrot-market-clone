@@ -8,11 +8,14 @@ type Modal = {
 export default function useModal() {
   const [modal, setModal] = useAtom<Modal>(modalAtom);
 
-  const useQRModal = () => {
+  const openQRModal = () => {
     setModal({ isOpen: true, type: 'QR' });
+  };
+  const openPlaceModal = () => {
+    setModal({ isOpen: true, type: 'Place' });
   };
   const closeModal = () => {
     setModal((prev) => ({ ...prev, isOpen: false }));
   };
-  return { modal, useQRModal, closeModal };
+  return { modal, openQRModal, openPlaceModal, closeModal };
 }

@@ -18,7 +18,7 @@ export default function QrModal({ isOpen, data, closeModal }: Props) {
       <DialogContent className="bg-black border-0 text-white">
         <DialogHeader>
           <DialogTitle>QR 코드 스캔</DialogTitle>
-          <DialogDescription className="flex flex-col justify-center items-center space-y-10">
+          <DialogDescription className="flex flex-col justify-center items-center space-y-10 pt-10">
             <span className="text-2xl font-bold">당근 앱으로 열기</span>
             <QRIcon />
             <section className="flex flex-col items-center">

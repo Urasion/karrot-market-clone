@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './components/layout/RootLayout';
 import MainLayout from './components/layout/MainLayout';
 import MainPage from './pages/MainPage';
+import BuySellPage from './pages/BuySellPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
           {
             path: 'main',
             element: <MainPage />,
+          },
+          {
+            path: 'buy-sell',
+            element: <BuySellPage />,
           },
         ],
       },
